@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClinicCare | e-Bliss Technologies Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">e</div>
+      <div><div class="brand-name">e-Bliss</div><div class="brand-sub">Technologies</div><div class="brand-tag">Your Vision&nbsp; | &nbsp;Our Code&nbsp; | &nbsp;Your Growth</div></div>
+    </div>
+    <div class="top-divider"></div>
+    <div class="product-title"><h1>ClinicCare</h1><p>Clinic Management System</p></div>
+    <div class="top-divider second"></div>
+    <div class="demo-title">Sample Demo – Prescription with<br>Molecular Name</div>
+    <div class="ribbon">Simple.<br>Secure.<br>Customisable.</div>
+  </header>
+
+  <main class="app-layout">
+    <aside class="sidebar">
+      <div class="doctor-mini"><div class="avatar small">●</div><div><strong>Dr. Arun Kumar</strong><small>General Physician</small></div></div>
+      <nav>
+        <a href="#" data-tab="Dashboard"><span>⌂</span>Dashboard</a>
+        <a href="#" data-tab="Patient Registration" class="active"><span>♟</span>Patient Registration</a>
+        <a href="#" data-tab="Appointments"><span>▦</span>Appointments</a>
+        <a href="#" data-tab="Consultation"><span>◉</span>Consultation</a>
+        <a href="#" data-tab="Prescriptions"><span>▤</span>Prescriptions</a>
+        <a href="#" data-tab="Billing"><span>▣</span>Billing</a>
+        <a href="#" data-tab="Patient History"><span>◷</span>Patient History</a>
+        <a href="#" data-tab="Reports"><span>▧</span>Reports</a>
+        <a href="#" data-tab="Settings"><span>⚙</span>Settings</a>
+      </nav>
+      <a href="#" class="logout"><span>⏻</span>Logout</a>
+    </aside>
+
+    <section class="workspace">
+      <div class="search-row">
+        <label class="searchbox"><span>⌕</span><input id="patientSearch" placeholder="Search by Patient ID / Name / Mobile"></label>
+        <span class="date-stamp" id="currentDate">12-06-2025&nbsp;&nbsp; 10:24 AM</span>
+      </div>
+      <section class="patient-card">
+        <div class="avatar">●</div>
+        <div class="patient-details">
+          <div><span>Patient Name</span><b>:</b><strong id="patientNameDisplay">S. Ramesh</strong></div>
+          <div><span>Patient ID</span><b>:</b><strong id="patientIdDisplay">EBT0001</strong></div>
+          <div><span>Age / Gender</span><b>:</b><strong id="patientAgeDisplay">35 Years / Male</strong></div>
+          <div><span>Mobile</span><b>:</b><strong id="patientMobileDisplay">9840561234</strong></div>
+        </div>
+        <button class="btn blue small-btn" id="viewHistory">View History</button>
+      </section>
+
+      <div class="tabs">
+        <button data-panel="consultationPanel">Consultation</button>
+        <button class="selected" data-panel="prescriptionPanel">Prescription</button>
+        <button data-panel="billingPanel">Billing</button>
+      </div>
+
+      <section class="work-card" id="prescriptionPanel">
+        <div class="section-heading">Add Medicine</div>
+        <div class="medicine-search-row">
+          <label class="searchbox medicine-search"><span>⌕</span><input id="medicineSearch" placeholder="Search brand or molecule name" value="Paracetamol"></label>
+          <button class="btn outline" id="addCustom">＋ Add Custom Medicine</button>
+        </div>
+        <div class="table-wrap">
+          <table class="medicine-table">
+            <thead><tr><th>Brand Name</th><th>Molecule Name</th><th>Strength</th><th>Form</th><th></th></tr></thead>
+            <tbody id="medicineCatalog"></tbody>
+          </table>
+        </div>
+        <div class="section-heading selected-heading">Selected Medicines</div>
+        <div class="table-wrap">
+          <table class="selected-table">
+            <thead><tr><th>S.No</th><th>Medicine Name (Brand)</th><th>Molecule Name</th><th>Strength</th><th>Dosage</th><th>Duration</th><th></th></tr></thead>
+            <tbody id="selectedMedicines"></tbody>
+          </table>
+        </div>
+        <label class="notes-label" for="notes">Notes / Instructions</label>
+        <textarea id="notes" rows="2">Take after food. If fever persists, consult again.</textarea>
+        <div class="action-row">
+          <button class="btn blue" id="printBtn">▣ &nbsp; Save &amp; Print Prescription</button>
+          <button class="btn green" id="saveBtn">✓ &nbsp; Save</button>
+          <span id="saveMessage" role="status"></span>
+        </div>
+      </section>
+
+      <section class="work-card placeholder-panel" id="consultationPanel" hidden>
+        <h2>Consultation</h2>
+        <p>This demo can be extended with symptoms, examination notes and doctor-approved diagnosis.</p>
+        <label>Consultation notes<textarea rows="5" placeholder="Enter sample consultation notes"></textarea></label>
+      </section>
+      <section class="work-card placeholder-panel" id="billingPanel" hidden>
+        <h2>Billing</h2>
+        <p>Billing and receipt generation can be added after the clinic confirms its workflow.</p>
+        <label>Consultation fee (₹)<input type="number" value="300" min="0"></label>
+      </section>
+    </section>
+
+    <section class="print-column">
+      <article class="prescription-paper" id="prescriptionPaper">
+        <header class="clinic-header">
+          <div class="medical-symbol">⚕</div>
+          <div class="clinic-heading">
+            <h2 id="clinicNamePrint">Sri Durga Clinic</h2>
+            <strong id="doctorNamePrint">Dr. V.Jayachandran, MBBS, MD <span>(General Medicine)</span></strong>
+            <div id="doctorRolePrint">General Physician</div>
+            <div id="clinicAddressPrint">#12, Modern City,<br>Pattabiram, Chennai - 600072</div>
+            <div class="contact-line">☎ <span id="clinicPhonePrint">+91 98765 43210</span> &nbsp; | &nbsp; ✉ <span id="clinicEmailPrint">drarunkumar@clinic.com</span></div>
+          </div>
+        </header>
+        <div class="paper-rule"></div>
+        <h3 class="prescription-title">PRESCRIPTION</h3>
+        <div class="prescription-meta">
+          <div><span>Patient Name</span><b>:</b><strong id="paperPatientName">S. Ramesh</strong></div>
+          <div><span>Date</span><b>:</b><strong id="paperDate">12-06-2025</strong></div>
+          <div><span>Age / Gender</span><b>:</b><strong id="paperPatientAge">35 Years / Male</strong></div>
+          <div><span>Visit No</span><b>:</b><strong>0005</strong></div>
+          <div><span>Patient ID</span><b>:</b><strong>EBT0001</strong></div>
+          <div><span>Mobile</span><b>:</b><strong id="paperPatientMobile">9840561234</strong></div>
+        </div>
+        <div class="rx-symbol">℞</div>
+        <div class="table-wrap paper-table-wrap">
+          <table class="paper-table">
+            <thead><tr><th>S.No</th><th>Medicine Name<br>(Brand)</th><th>Molecule Name<br>(Generic Name)</th><th>Strength</th><th>Dosage</th><th>Duration</th></tr></thead>
+            <tbody id="paperMedicineRows"></tbody>
+          </table>
+        </div>
+        <div class="instructions">
+          <strong>Instructions:</strong>
+          <ul id="paperInstructions"><li>Take after food.</li><li>If fever persists, consult again.</li></ul>
+        </div>
+        <div class="signature">
+          <div class="signature-scribble">Dr. Arun Kumar</div>
+          <strong id="signatureDoctorName">Dr. Arun Kumar</strong>
+          <div>MBBS, MD</div><div>General Physician</div>
+        </div>
+        <div class="printed-at">Printed on: <span id="printedDate">12-06-2025 10:25 AM</span></div>
+        <div class="paper-rule bottom-rule"></div>
+        <div class="clinic-motto">Healthy Life ... Our Priority</div>
+      </article>
+    </section>
+  </main>
+
+  <section class="info-row">
+    <div class="info-card">
+      <h2>Key Features Shown in This Demo</h2>
+      <div class="features">
+        <div><span>✚</span><p>Clinic Name &amp; Details<br>on Prescription</p></div>
+        <div><span>♟</span><p>Patient Information</p></div>
+        <div><span>💊</span><p>Molecule Name<br>along with Brand Name</p></div>
+        <div><span>▣</span><p>Print / Download<br>Prescription</p></div>
+      </div>
+    </div>
+    <div class="info-card next-card">
+      <h2>Next Steps</h2>
+      <ol>
+        <li><i>1</i>Discuss your requirements and workflow</li>
+        <li><i>2</i>Finalise the features you need</li>
+        <li><i>3</i>Get a detailed proposal with cost and timeline</li>
+        <li><i>4</i>Start development and training</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-main"><strong>◉ &nbsp;+91-98847 15673</strong><span>|</span><strong>✉ &nbsp;projects@eblissstechnologies.com</strong><span>|</span><strong>◎ &nbsp;www.eblisstechnologies.com</strong></div>
+    <div class="footer-address">📍 &nbsp; #25, Sivasakthi Complex, Mosque Street, Pattabiram, Chennai - 72</div>
+    <div class="footer-splash">Your Clinic<br>Our Technology<br>Better Care</div>
+  </footer>
+  <div class="demo-warning">DEMO ONLY — fictional sample patient and clinic information; not for actual clinical use.</div>
+  <script src="script.js"></script>
+</body>
+</html>
