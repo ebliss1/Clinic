@@ -5,6 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ClinicCare | e-Bliss Technologies Demo</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .prescription-clinic-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+    }
+    .doctor-header-details {
+      min-width: 0;
+      font-size: 11px;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
+    }
+    .doctor-header-details strong {
+      display: block;
+      font-size: 10px;
+      line-height: 1.35;
+      margin-bottom: 4px;
+      color: #102f58;
+      white-space: nowrap;
+      letter-spacing: -0.25px;
+    }
+    .clinic-header-details {
+      min-width: 0;
+ line-height: 1.55;
+
+      overflow-wrap: anywhere;
+    }
+    .clinic-header-details h2 {
+      text-align: left;
+      font-size: 18px;
+line-height: 0.25;
+
+      white-space: nowrap;
+    }
+    .clinic-header-details .consulting-hours-title {
+      margin-top: 7px;
+      font-style: italic;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    @media (max-width: 700px) {
+      .prescription-clinic-header {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media print {
+      .prescription-clinic-header {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -21,7 +73,7 @@
 
   <main class="app-layout">
     <aside class="sidebar">
-      <div class="doctor-mini"><div class="avatar small">●</div><div><strong>Dr. V. Jayachandran</strong><small>General Physician</small></div></div>
+      <div class="doctor-mini"><div class="avatar small">●</div><div><strong>Dr. V.JAYACHANDRAN</strong><small>General Physician</small></div></div>
       <nav>
         <a href="#" data-tab="Dashboard"><span>⌂</span>Dashboard</a>
         <a href="#" data-tab="Patient Registration" class="active"><span>♟</span>Patient Registration</a>
@@ -100,20 +152,22 @@
 
     <section class="print-column">
       <article class="prescription-paper" id="prescriptionPaper">
-        <header class="clinic-header">
-          <div class="medical-symbol">⚕</div>
-          <div class="clinic-heading">
-            <h2 id="clinicNamePrint">Sri Durga Clinic</h2>
-
-            
-            <strong id="doctorNamePrint">Dr. V.Jayachandran, MBBS, MD <span>(Path), F.Diab</span></strong>&nbsp; &nbsp;<h2>Sri Durga</h2>
-            <div id="doctorRolePrint">Regd. No. 93364</div>
-            <div id="doctorRolePrint">General Practitioner & AMA</div>
-            <div id="doctorRolePrint">Consultant Pathologist & Diabetologist</div>
-            <div id="doctorRolePrint">Civil Surgeon / Sr. Assistant Professor</div>
-            <div id="doctorRolePrint">Government Medical College Hospital, Thiruvallur.</div>
-            <div id="clinicAddressPrint">#4, CTH Road, Modern City,<br>Pattabiram, Chennai - 600072</div>
-            <div class="contact-line">☎ <span id="clinicPhonePrint">+91 99413 34386</span> &nbsp; | &nbsp; ✉ <span id="clinicEmailPrint">drjayachandran@clinic.com</span></div>
+        <header class="clinic-header prescription-clinic-header">
+          <div class="doctor-header-details">
+            <strong id="doctorNamePrint">Dr. V.JAYACHANDRAN, MBBS, MD (Path), F.Diab</strong>
+            <div>Regd. No. 93364</div>
+            <div>General Practitioner &amp; AMA</div>
+            <div>Consultant Pathologist &amp; Diabetologist</div>
+            <div>Civil Surgeon / Sr. Assistant Professor</div>
+            <div>Government Medical College Hospital, Thiruvallur</div>
+          </div>
+          <div class="clinic-heading clinic-header-details">
+            <h2 id="clinicNamePrint">SRI DURGA CLINIC</h2>
+            <div id="clinicAddressPrint">No.4, Modern City, C.T.H. Road,<br>Pattabiram, Chennai - 72.  Ph:9499019250</div>
+            <div class="consulting-hours-title">Consulting Hours:</div>
+            <div>Morning: 7.00 a.m. to 8.30 a.m.</div>
+            <div>Evening: 6.30 p.m. to 10.00 p.m.</div>
+         
           </div>
         </header>
         <div class="paper-rule"></div>
@@ -138,13 +192,13 @@
           <ul id="paperInstructions"><li>Take after food.</li><li>If fever persists, consult again.</li></ul>
         </div>
         <div class="signature">
-          <div class="signature-scribble">Dr. Jayachandran</div>
-          <strong id="signatureDoctorName">Dr. Jayachandran</strong>
-          <div>MBBS, MD</div><div>General Physician</div>
+          <div class="signature-scribble"></div>
+          <strong id="signatureDoctorName">Dr. V.JAYACHANDRAN</strong>
+          <div>MBBS, MD (Path) & F.Diab</div><div>General Practitioner & AMA</div>
         </div>
         <div class="printed-at">Printed on: <span id="printedDate">12-06-2025 10:25 AM</span></div>
         <div class="paper-rule bottom-rule"></div>
-        <div class="clinic-motto">Healthy Life ... Our Priority</div>
+        <div class="clinic-motto">சுற்றுப்புறத்தைத் தூய்மையாக வைப்போம்! நோயற்ற வாழ்க்கை வாழ்வோம்!</div>
       </article>
     </section>
   </main>
